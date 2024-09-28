@@ -1,0 +1,41 @@
+{
+  "name": "rate-flow",
+  "version": "1.0.0",
+  "description": "Currency conversion api",
+  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": "18"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ridwanade0/rate-flow.git"
+  },
+  "keywords": [
+    "api",
+    "currency",
+    "exchange",
+    "rate"
+  ],
+  "author": "Ridwan Adegboyega Oyeniyi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ridwanade0/rate-flow/issues"
+  },
+  "homepage": "https://github.com/Ridwanade0/rate-flow#readme",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.7"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "eslint": "^9.11.1",
+    "express": "^4.21.0",
+    "mongoose": "^8.7.0"
+  }
+}
