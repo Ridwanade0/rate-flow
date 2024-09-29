@@ -1,2 +1,2 @@
-# rate-flow
+# Rate Flow
 Currency conversion api
