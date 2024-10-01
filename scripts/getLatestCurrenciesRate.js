@@ -22,7 +22,6 @@ const fetchLatestRates = async () => {
         const currenciesCode = await currenciesCodesModel.findById("CurrenciesCode");
 //        console.log(currenciesCode)
         for (const base in currenciesCode.currencies) {
-            console.log(base)
             const latestRates = await calculateBaseRates(response.data.rates, base);
 //            console.log(latestRates)
             await LatestRates.findOneAndUpdate({base}, {

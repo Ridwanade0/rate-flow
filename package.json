@@ -12,7 +12,8 @@
     "dev": "nodemon index.js",
     "lint": "eslint .",
     "test": "jest",
-    "latest": "node scripts/getLatestCurrenciesRate.js"
+    "latest": "node scripts/getLatestCurrenciesRate.js",
+    "saveHistory": "node scripts/saveHistory.js"
   },
   "repository": {
     "type": "git",
