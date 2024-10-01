@@ -1,4 +1,4 @@
-import getLatestRates from "../services/getLatestRatesV1.js"; // Importing the function to fetch the latest currency rates
+import getLatestRates from "../lib/getLatestRatesV1.js"; // Importing the function to fetch the latest currency rates
 import formatRates from "../lib/formatRates.js"; // Importing the function to format the fetched rates
 
 const latestCurrenciesRate = async (req, res) => {

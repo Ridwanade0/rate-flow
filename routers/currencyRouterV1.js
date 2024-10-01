@@ -1,9 +1,11 @@
 import express from "express";
 import {currenciesCodes} from "../controller/currencyControllerV1.js";
-import latestCurrenciesRate from "../controller/latestCurrenciesRateV1.js";
+import latestCurrenciesRate from "../controller/latestCurrenciesRateControllerV1.js";
+import conversionControllerV1 from "../controller/conversionControllerV1.js";
 
 const router = express.Router();
 
 router.get("/codes.json", currenciesCodes); //routes for fetching the availbale currency codes available in the services
-router.get("/latest.json", latestCurrenciesRate)
+router.get("/latest.json", latestCurrenciesRate);
+router.get("/convert", conversionControllerV1);
 export default router;
