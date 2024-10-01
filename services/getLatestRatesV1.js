@@ -1,4 +1,3 @@
-//getLatestRatesV1.js
 import LatestRatesModel from "../models/latestRatesModel.js";
 
 const getLatestRates = async (base) => {

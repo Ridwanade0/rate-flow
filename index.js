@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 //Self executing function to execute start the application.
 (async function () {
     await connectDB(); // function to cnnet to the database
-    app.set("json spaces", 2); // add spacing to all json response (preety-print)
+    app.set("json spaces", 2); // add spacing to all json response (prrety-print)
 
     app.get("/", (req, res) => {
         res.status(200).send("Rate-Flow server now available");
