@@ -28,9 +28,10 @@ const saveHistory = async () => {
         console.log("Operation executed succesfully");
     } catch (error) {
         throw new Error(error.message)
-    } finally {
-        console.log("Process exited finally!")
-        process.exit(0)
     }
+//    finally {
+//        console.log("Process exited finally!")
+//        process.exit(0)
+//    }
 }
 export default saveHistory;

@@ -39,10 +39,11 @@ const fetchLatestRates = async () => {
         console.log("Rates saved succesfully!")
     } catch (error) {
         throw new Error(error.message)
-    } finally {
-        console.log("Operation succesfull")
-        process.exit(0);
     }
+//     finally {
+//        console.log("Operation succesfull")
+//        process.exit(0);
+//    }
 }
 
 export default fetchLatestRates;
