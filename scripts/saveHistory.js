@@ -1,23 +1,36 @@
 import connectDB from "../lib/connectDB.js";
-import latestRatesModel from "../models/latestRatesModel.js";
+import LatestRates from "../models/latestRatesModel.js";
 import HistoryRates from "../models/historyRatesModel.js";
 
 const saveHistory = async () => {
     try {
         await connectDB();
-        const latestRates = await latestRatesModel.find();
-        for (const rate of latestRates) {
-            // Update or create a record in the historyRates collection
-            await HistoryRates.findByIdAndUpdate(
-                rate._id,
-                {$set: rate},
-                {upsert: true}
-            )}
+        const todaysLatestRates = await LatestRates.find()
+        for (const latestRate of todaysLatestRates) {
+            await HistoryRates.findOneAndUpdate(
+                {
+                    base: latestRate.base,
+                    date: latestRate.date
+                },
+                {
+
+                    $set: {
+                        date: latestRate.date,
+                        base: latestRate.base,
+                        rates: latestRate.rates,
+                    }
+                },
+                {
+                    upsert: true,
+                }
+            )
+        }
+        console.log("Operation executed succesfully");
     } catch (error) {
         throw new Error(error.message)
     } finally {
-        console.log("Operation succesfull")
-        process.exit(0);
+        console.log("Process exited finally!")
+        process.exit(0)
     }
 }
 await saveHistory();
