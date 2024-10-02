@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - History Rates</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        h1, h2, h3, h4 {
+            margin-top: 20px;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>API Documentation</h1>
+        <h2>History Rates API</h2>
+        <p>This API retrieves historical currency rates based on a specified date and currency symbols.</p>
+
+        <h3>Endpoint</h3>
+        <pre><code>GET /api/history-rates/:date</code></pre>
+
+        <h3>Request Parameters</h3>
+        <ul>
+            <li><strong>date</strong> (path parameter): <em>string</em> - The date for which historical rates are requested. Format: <code>YYYY-MM-DD</code></li>
+        </ul>
+
+        <h3>Query Parameters</h3>
+        <ul>
+            <li><strong>base</strong> (query parameter): <em>string</em> - A comma-separated list of base currencies (default: <code>USD</code>).</li>
+            <li><strong>symbols</strong> (query parameter): <em>string</em> or <em>JSON</em> - A comma-separated list or JSON object specifying the target currency symbols to retrieve. If omitted, all rates for the base currency will be returned.</li>
+        </ul>
+
+        <h3>Response Format</h3>
+        <pre><code>
+{
+    "code": 200,
+    "success": true,
+    "data": [
+        {
+            "date": "YYYY-MM-DD",
+            "base": "CURRENCY_CODE",
+            "rates": {
+                "TARGET_CURRENCY": RATE,
+                ...
+            }
+        },
+        ...
+    ]
+}
+        </code></pre>
+
+        <h3>Response Example</h3>
+        <pre><code>
+{
+    "code": 200,
+    "success": true,
+    "data": [
+        {
+            "date": "2023-10-01",
+            "base": "USD",
+            "rates": {
+                "EUR": 0.85,
+                "JPY": 110.50
+            }
+        },
+        {
+            "date": "2023-10-01",
+            "base": "GBP",
+            "rates": {
+                "USD": 1.35,
+                "JPY": 149.00
+            }
+        }
+    ]
+}
+        </code></pre>
+
+        <h3>Error Responses</h3>
+        <pre><code>
+{
+    "code": 400,
+    "success": false,
+    "message": "Invalid date format. Please use YYYY-MM-DD."
+}
+        </code></pre>
+        <pre><code>
+{
+    "code": 500,
+    "success": false,
+    "message": "Error message detailing the issue."
+}
+        </code></pre>
+
+        <h3>Usage Example</h3>
+        <pre><code>
+GET /api/history-rates/2023-10-01?base=USD,GBP&symbols={"USD": ["EUR", "JPY"], "GBP": ["USD"]}
+        </code></pre>
+
+        <h3>Notes</h3>
+        <ul>
+            <li>Ensure the date is in the correct format.</li>
+            <li>Multiple base currencies can be specified.</li>
+            <li>The API will return rates only for the requested symbols, if specified; otherwise, all rates will be returned for the base currencies.</li>
+        </ul>
+
+        <footer class="mt-5">
+            <p>&copy; 2024 Your Company Name</p>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
