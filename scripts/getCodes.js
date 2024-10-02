@@ -20,4 +20,4 @@ async function fetchCodes() {
     }
 }
 
-await fetchCodes();
+export default fetchCodes;

@@ -33,4 +33,4 @@ const saveHistory = async () => {
         process.exit(0)
     }
 }
-await saveHistory();
+export default saveHistory;

@@ -45,4 +45,4 @@ const fetchLatestRates = async () => {
     }
 }
 
-fetchLatestRates()
+export default fetchLatestRates;
