@@ -70,8 +70,8 @@ cron.schedule("0 0 * * *", async () => {
     app.set("json spaces", 2); // Add spacing to JSON responses for pretty-printing
 
     // Run the jobs immediately on startup
-    await runFetchLatestRates();
     await runFetchCodes();
+    await runFetchLatestRates();
     await runSaveHistory();
 
     // Serve static HTML files

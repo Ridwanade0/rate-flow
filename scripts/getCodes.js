@@ -14,7 +14,7 @@ async function fetchCodes() {
         await CurrenciesCodesModel.findOneAndUpdate(
             {}, // Find the existing document (you can use a filter if needed, here it's updating the only document)
             { currencies: response.data }, // Update with new currency data
-            { upsert: false } // Do not insert a new document if no match is found
+            { upsert: true } // Insert a new document if no match is found
         );
 
         console.log("Currency code updated!!!");
@@ -23,4 +23,5 @@ async function fetchCodes() {
     }
 }
 
+await fetchCodes()
 export default fetchCodes;

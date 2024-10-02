@@ -13,7 +13,8 @@
     "lint": "eslint .",
     "test": "jest",
     "latest": "node scripts/getLatestCurrenciesRate.js",
-    "saveHistory": "node scripts/saveHistory.js"
+    "saveHistory": "node scripts/saveHistory.js",
+    "codes": "node scripts/getCodes.js"
   },
   "repository": {
     "type": "git",
