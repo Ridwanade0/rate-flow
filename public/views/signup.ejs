@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body class="container">
+    <form class="w-50 border p-4 rounded bg-white shadow" action="/auth/signup" method="POST" id="signupForm">
+      <h1 class="text-center">Signup</h1>
+      <p class="text-center">
+        Create an account to start using our currency conversion api
+      </p>
+      <div class="mb-3">
+        <label for="emailAddress" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="emailAddress"
+          placeholder="johndoe@email.com"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="**********"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Signup</button>
+      <p class="text-center">Already have an account, Login <a href="/auth/login" class="mt-2">here</a></p>
+    </form>
+  </body>
+</html>
