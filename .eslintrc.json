@@ -1,0 +1,25 @@
+{
+ "env": {
+   "node": true,
+   "es2021": true
+ },
+ "parser": "@typescript-eslint/parser",  // Use TypeScript parser
+ "parserOptions": {
+   "ecmaVersion": 12,                    // Specify ECMAScript version
+   "sourceType": "module"                // Use ES6 modules
+ },
+ "plugins": [
+   "@typescript-eslint", "tsdoc"                // Use TypeScript plugin
+ ],
+ "extends": [
+   "eslint:recommended",                 // Use ESLint recommended rules
+   "plugin:@typescript-eslint/recommended" // Use TypeScript recommended rules
+ ],
+ "rules": {
+   // Customize your rules here
+   "semi": ["error", "always"],           // Example: enforce semicolons
+   "quotes": ["error", "single"],         // Example: enforce single quotes
+   "@typescript-eslint/no-unused-vars": ["error"],  // Example: prevent unused variables
+   "tsdoc/syntax": "warn"
+ }
+}

@@ -1,48 +1,38 @@
 {
   "name": "rate-flow",
-  "version": "1.0.0",
-  "description": "Currency conversion api",
+  "version": "1.2.0",
   "main": "index.js",
   "type": "module",
-  "engines": {
-    "node": "18"
-  },
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "lint": "eslint .",
-    "test": "jest",
-    "latest": "node scripts/getLatestCurrenciesRate.js",
-    "saveHistory": "node scripts/saveHistory.js",
-    "codes": "node scripts/getCodes.js"
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "dev": "nodemon --watch src -e ts --exec ts-node src/index.ts",
+    "lint": "eslint",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "docs": "typedoc --out docs src"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Ridwanade0/rate-flow.git"
-  },
-  "keywords": [
-    "api",
-    "currency",
-    "exchange",
-    "rate"
-  ],
-  "author": "Ridwan Adegboyega Oyeniyi",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Ridwanade0/rate-flow/issues"
-  },
-  "homepage": "https://github.com/Ridwanade0/rate-flow#readme",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "devDependencies": {
-    "eslint": "^9.11.1",
-    "globals": "^15.9.0",
-    "nodemon": "^3.1.7"
+    "@eslint/js": "^9.12.0",
+    "@types/node": "^22.7.5",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
+    "eslint": "^9.12.0",
+    "eslint-plugin-tsdoc": "^0.3.0",
+    "globals": "^15.10.0",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
+    "typedoc": "^0.26.8",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.8.1"
   },
   "dependencies": {
-    "axios": "^1.7.7",
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
-    "express-rate-limit": "^7.4.0",
-    "mongoose": "^8.7.0",
-    "node-cron": "^3.0.3"
+    "mongoose": "^8.7.0"
   }
 }
