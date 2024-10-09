@@ -1,11 +1,27 @@
-import express, { Request, Response } from "express";
-import postSignupController from "../controller/postSignupController";
+// Import necessary modules
+import express, { Request, Response } from "express"; // Import express and necessary types
+import signupController from "../controller/signupController"; // Import the signup controller
 
-const router = express.Router()
+// Create a new router instance
+const router = express.Router();
 
-router.get("/signup", async (req: Request, res: Response) => {
- res.render("signup")
-})
-router.post("/signup", postSignupController)
+/**
+ * GET /signup
+ * @description Render the signup page.
+ * @param {Request} req - The HTTP request object.
+ * @param {Response} res - The HTTP response object.
+ */
+router.get("/signup", async (req: Request, res: Response): Promise<void> => {
+  res.render("signup"); // Render the signup view
+});
 
-export default router
+/**
+ * POST /signup
+ * @description Handle signup form submission.
+ * @param {Request} req - The HTTP request object.
+ * @param {Response} res - The HTTP response object.
+ */
+router.post("/signup", signupController); // Delegate to the signup controller for handling signup logic
+
+// Export the router for use in other parts of the application
+export default router;
