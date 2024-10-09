@@ -23,5 +23,16 @@ router.get("/signup", async (req: Request, res: Response): Promise<void> => {
  */
 router.post("/signup", signupController); // Delegate to the signup controller for handling signup logic
 
+/**
+ * GET /login
+ * @description Renders the login page
+ * @param {Request} req - The HTTP request object.
+ * @param {Response} res - The HTTP response object.
+ */
+router.get("/login", async (req:Request, res:Response) => {
+  res.render("login") //Render the login view
+})
+
+
 // Export the router for use in other parts of the application
 export default router;
