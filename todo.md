@@ -1,6 +1,6 @@
 ## Tasks for Tomorrow
 
-- [ ] Create the navigation bar and update the index page of the API frontend.
+- [x] Create the navigation bar and update the index page of the API frontend.
 - [ ] Set up user authentication:
   - [ ] Implement user registration with email and password.
   - [ ] Create login functionality.
