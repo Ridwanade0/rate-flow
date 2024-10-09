@@ -20,7 +20,9 @@ document
       }
 
       const data = await response.json();
-      console.log(data);
+      if(data){
+        window.location.href = "/auth/login"
+      }
     } catch (error) {
       console.error("Error:", error); 
       alert(error.message);  
