@@ -7,6 +7,7 @@ interface IUser extends Document {
   password: string;
   isVerified: boolean;
   apiKeys: string[];
+  apiCallsLimit: number; // Maximum number of API calls allowed per user
   createdAt?: Date; // Optional, as it is managed by Mongoose
   updatedAt?: Date; // Optional, as it is managed by Mongoose
 }
@@ -43,6 +44,11 @@ const userModelSchema = new Schema<IUser>(
       type: [String], // Array of strings
       required: false,
     },
+    apiCallsLimit: {
+      type: Number,
+      default: 1000, // Default limit of 1000 API calls
+      required: true,
+    }
   },
   {
     timestamps: true,

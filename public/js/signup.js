@@ -6,7 +6,7 @@ document
       const response = await fetch("/auth/signup", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",  
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email: document.getElementById("emailAddress").value,
@@ -20,11 +20,13 @@ document
       }
 
       const data = await response.json();
-      if(data){
-        window.location.href = "/auth/login"
+      if (data) {
+        document.getElementById("emailAddress").value = "";
+        document.getElementById("password").value = "";
+        window.location.href = "/auth/login";
       }
     } catch (error) {
-      console.error("Error:", error); 
-      alert(error.message);  
+      console.error("Error:", error);
+      alert(error.message);
     }
   });

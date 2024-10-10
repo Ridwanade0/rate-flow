@@ -3,6 +3,10 @@ import "dotenv/config"; // Load environment variables from .env file
 import express, { Request, Response } from "express"; // Import express and necessary types
 import authRoutes from "./routes/authRoute"; // Import authentication routes
 import connectMongoDB from "./lib/connectMongoDB"; // Import MongoDB connection function
+import accountRoutes from "./routes/accountRoute"; // Import account route
+import apiRoutes from "./routes/apiRoute"; // Import API routes
+
+
 
 // Initialize the express application
 const app = express();
@@ -23,6 +27,10 @@ app.get("/", (req: Request, res: Response): void => {
 
 // Use authentication routes
 app.use("/auth", authRoutes);
+// Use account routes
+app.use("/account", accountRoutes);
+// Use api routes
+app.use("/api", apiRoutes);
 
 // Start the server
 app.listen(PORT, (): void => {

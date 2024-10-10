@@ -21,9 +21,11 @@ document
 
       const data = await response.json();
       console.log(data);
-      if(data){
-        window.localStorage.setItem('token', data.token);
-        window.location.href = "/dashboard"
+      if (data) {
+        document.getElementById("emailAddress").value = "";
+        document.getElementById("password").value = "";
+        window.localStorage.setItem("token", data.token);
+        window.location.href = "/account";
       }
     } catch (error) {
       console.error("Error:", error);
