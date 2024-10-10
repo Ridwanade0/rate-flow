@@ -4,11 +4,11 @@ import { v4 as uuidv4 } from "uuid";
 import User from "../models/userModel";
 import { jwtPayload } from "../lib/interface";
 import ApiKey from "../models/apiKeysModel";
+import verifyJWT from "../lib/verifyJWT";
 
 const createapikeyService = async (token: string) => {
   try {
-    const jwtSecret = process.env.JWT_SECRET as string;
-    const isTokenValid = jwt.verify(token, jwtSecret) as jwtPayload;
+    const isTokenValid = await verifyJWT(token)
     if (!isTokenValid) {
       throw new Error("Invalid token or expired token");
     }

@@ -6,15 +6,42 @@
     <title>Rate Flow</title>
     <link rel="stylesheet" href="/css/main.css" />
   </head>
-  <body class="container" style="padding-top: 20px;">
+  <body class="container" style="padding-top: 20px">
     <div class="row">
       <%- include("partials/navbar") %>
-      <div class="col-8 border">
-       <h1>API Keys</h1>
-       <p>Here are the active API keys for your account, which you can currently use to access the Rates Flow's API. You can add and remove API keys or expire old ones.</p>
-       <div>
-        <!-- Container for api key creation  -->
-       </div>
+      <div class="col-8 border h-full">
+        <h1>API Keys</h1>
+        <p>
+          Here are the active API keys for your account, which you can currently
+          use to access the Rates Flow's API. You can add and remove API keys or
+          expire old ones.
+        </p>
+        <div class="w-full p-2">
+          <!-- Container for api key creation  -->
+          <h1>Api keys</h1>
+          <table  class="table table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Key</th>
+                <th>Created date</th>
+                <th>Last used</th>
+                <th>Deactivate</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% keys.forEach(function(key) { %>
+                <tr>
+                  <td><%= key.name %></td>
+                  <td><%= key.key %></td>
+                  <td><%= key.createdAt %></td>
+                  <td><%= key.lastUsed %></td>
+                  <td><a href="#">Deactivate</a></td>
+                </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </body>
