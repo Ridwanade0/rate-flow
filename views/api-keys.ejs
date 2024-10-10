@@ -29,20 +29,13 @@
                 <th>Deactivate</th>
               </tr>
             </thead>
-            <tbody>
-              <% keys.forEach(function(key) { %>
-                <tr>
-                  <td><%= key.name %></td>
-                  <td><%= key.key %></td>
-                  <td><%= key.createdAt %></td>
-                  <td><%= key.lastUsed %></td>
-                  <td><a href="#">Deactivate</a></td>
-                </tr>
-              <% }); %>
+            <tbody id="apikeys">
+              
             </tbody>
           </table>
         </div>
       </div>
     </div>
+    <script src="/js/apikeys.js"></script>
   </body>
 </html>

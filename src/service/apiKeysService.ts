@@ -1,7 +1,7 @@
 import verifyJWT from "../lib/verifyJWT";
 import ApiKey from "../models/apiKeysModel";
 
-const apiKeysViewService = async (token: string) => {
+const apiKeysService = async (token: string) => {
   try {
     const isTokenValid = await verifyJWT(token);
     const apikeys = await ApiKey.find({ user: isTokenValid.id });
@@ -14,11 +14,11 @@ const apiKeysViewService = async (token: string) => {
         updatedAt: key.updatedAt,
       })
     );
-    return keys
+    return keys;
   } catch (error) {
     const err = error as Error;
     throw new Error(err.message); // Rethrow the error with a message
   }
 };
 
-export default apiKeysViewService;
+export default apiKeysService;
