@@ -11,7 +11,7 @@ import {v4 as uuidv4} from "uuid"; // Import uuidv4 for userID gneration
  * - A promise that resolves to the signup result.
  * @throws {Error} - Throws an error if the signup process fails.
  */
-const signupServices = async (email: string, password: string): Promise<{ message: string; user: { _id: string; email: string; createdAt: string; updatedAt: string; } }> => {
+const signupService = async (email: string, password: string): Promise<{ message: string; user: { _id: string; email: string; createdAt: string; updatedAt: string; } }> => {
   try {
     // Validate email and password
     if (!email || !password) {
@@ -54,7 +54,7 @@ const signupServices = async (email: string, password: string): Promise<{ messag
   }
 };
 
-export default signupServices;
+export default signupService;
 
 /**
  * Generates a unique ID for a new user.

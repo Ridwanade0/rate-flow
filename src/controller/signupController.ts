@@ -1,6 +1,7 @@
 // Import necessary modules
 import { Request, Response } from "express"; // Import Request and Response types
-import signupServices from "../service/signupService"; // Import the signup service
+import signupService from "../service/signupService"; // Import the signup service
+import { AuthCredentials } from "../lib/interface"; // Import authcredential interface 
 
 /**
  * Signup controller to handle user registration.
@@ -10,11 +11,6 @@ import signupServices from "../service/signupService"; // Import the signup serv
  */
 const signupController = async (req: Request, res: Response): Promise<void> => {
   try {
-    // Define the structure of signup credentials
-    interface SignupCredentials {
-      email: string;
-      password: string;
-    }
 
     // Define the structure of a new user response
     interface NewUserResponse {
@@ -27,8 +23,8 @@ const signupController = async (req: Request, res: Response): Promise<void> => {
       };
     }
 
-    const { email, password }: SignupCredentials = req.body; // Destructure email and password from request body
-    const userResponse: NewUserResponse = await signupServices(email, password); // Call the signup service
+    const { email, password }: AuthCredentials = req.body; // Destructure email and password from request body
+    const userResponse: NewUserResponse = await signupService(email, password); // Call the signup service
 
     // Send a success response with user information
     res.status(201).json(userResponse);

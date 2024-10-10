@@ -1,6 +1,7 @@
 // Import necessary modules
 import express, { Request, Response } from "express"; // Import express and necessary types
 import signupController from "../controller/signupController"; // Import the signup controller
+import loginController from "../controller/loginController"; //Import the login controller
 
 // Create a new router instance
 const router = express.Router();
@@ -32,6 +33,15 @@ router.post("/signup", signupController); // Delegate to the signup controller f
 router.get("/login", async (req:Request, res:Response) => {
   res.render("login") //Render the login view
 })
+
+
+/**
+ * POST /login
+ * @description Handle login form submission.
+ * @param {Request} req - The HTTP request object.
+ * @param {Response} res - The HTTP response object.
+ */
+router.post("/login", loginController)
 
 
 // Export the router for use in other parts of the application
