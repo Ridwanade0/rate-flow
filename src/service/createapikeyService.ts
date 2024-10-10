@@ -15,6 +15,13 @@ const createapikeyService = async (token: string) => {
     // Generate a new API key and save it to the database
     const newAPIKey = uuidv4().split("-").join("");
     // Update the user's apiKeys array with the new API key
+    const user = await User.findById(isTokenValid.id);
+    if (!user) {
+      throw new Error("User not found");
+    }
+    if (user.apiKeys.length > 1) {
+      throw new Error("Maximum number of API keys reached");
+    }
     const updatedUser = await User.findByIdAndUpdate(
       isTokenValid.id,
       {
@@ -37,8 +44,9 @@ const createapikeyService = async (token: string) => {
     });
     await newKey.save();
     return {
-     message: "New key generated successfully",
-     apiKey: newAPIKey,}
+      message: "New key generated successfully",
+      apiKey: newAPIKey,
+    };
   } catch (error) {
     const err = error as Error;
     throw new Error(err.message); // Rethrow the error with a message
