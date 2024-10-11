@@ -5,6 +5,7 @@ import authRoutes from "./routes/authRoute"; // Import authentication routes
 import connectMongoDB from "./lib/connectMongoDB"; // Import MongoDB connection function
 import accountRoutes from "./routes/accountRoute"; // Import account route
 import apiRoutes from "./routes/apiRoute"; // Import API routes
+import saveLatestRates from "./scripts/saveLatestRates";
 
 // Initialize the express application
 const app = express();
@@ -18,6 +19,7 @@ const PORT = process.env.PORT as string; // Define the port from environment var
 
   // Connect to MongoDB
   await connectMongoDB();
+  await saveLatestRates();
 
   // Route for the home page
   app.get("/", (req: Request, res: Response): void => {
