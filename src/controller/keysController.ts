@@ -6,7 +6,6 @@ const keysController = async (req: Request, res: Response) => {
     const authorizationToken = req.headers.authorization as string;
     const token = authorizationToken.split(" ")[1];
     const response = await apiKeysView(token);
-    console.log({ keys: response })
     res.status(200).json({ keys: response });
   } catch (error) {
     const err = error as Error;

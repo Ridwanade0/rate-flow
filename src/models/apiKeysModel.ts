@@ -2,6 +2,7 @@ import { Schema, model, Document } from "mongoose";
 
 interface IApiKey extends Document {
   _id: string;
+  name: string; // Name of the API key, defaults to "ApiKey" if not provided
   key: string;
   createdAt: Date;
   updatedAt: Date;
@@ -14,6 +15,11 @@ const apiKeySchema = new Schema<IApiKey>(
     _id: {
       type: String,
       required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+      default: "ApiKey",
     },
     key: {
       type: String,

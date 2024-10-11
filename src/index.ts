@@ -6,33 +6,33 @@ import connectMongoDB from "./lib/connectMongoDB"; // Import MongoDB connection 
 import accountRoutes from "./routes/accountRoute"; // Import account route
 import apiRoutes from "./routes/apiRoute"; // Import API routes
 
-
-
 // Initialize the express application
 const app = express();
-const PORT: string | undefined = process.env.PORT; // Define the port from environment variables
+const PORT = process.env.PORT as string; // Define the port from environment variables
 
-// Middleware setup
-app.use(express.json()); // Parse JSON request bodies
-app.use(express.static("public")); // Serve static files from the 'public' directory
-app.set("view engine", "ejs"); // Set the template engine to EJS
+(async () => {
+  // Middleware setup
+  app.use(express.json()); // Parse JSON request bodies
+  app.use(express.static("public")); // Serve static files from the 'public' directory
+  app.set("view engine", "ejs"); // Set the template engine to EJS
 
-// Connect to MongoDB
-connectMongoDB();
+  // Connect to MongoDB
+  await connectMongoDB();
 
-// Route for the home page
-app.get("/", (req: Request, res: Response): void => {
-  res.render("index", { title: "Rate Flow" }); // Render the index page with a title
-});
+  // Route for the home page
+  app.get("/", (req: Request, res: Response): void => {
+    res.render("index", { title: "Rate Flow" }); // Render the index page with a title
+  });
 
-// Use authentication routes
-app.use("/auth", authRoutes);
-// Use account routes
-app.use("/account", accountRoutes);
-// Use api routes
-app.use("/api", apiRoutes);
+  // Use authentication routes
+  app.use("/auth", authRoutes);
+  // Use account routes
+  app.use("/account", accountRoutes);
+  // Use api routes
+  app.use("/api", apiRoutes);
 
-// Start the server
-app.listen(PORT, (): void => {
-  console.log(`Server is running at http://localhost:${PORT}`); // Log server status
-});
+  // Start the server
+  app.listen(PORT, (): void => {
+    console.log(`Server is running at http://localhost:${PORT}`); // Log server status
+  });
+})();

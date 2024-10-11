@@ -1,5 +1,5 @@
 {
- "watch": ["src/**/*", "public/**/*", "views/**/*"],  
+ "watch": ["src/**/*", "views/**/*"],  
  "ext": "ts,js,json,ejs",
  "ignore": ["node_modules"],     
  "env": {

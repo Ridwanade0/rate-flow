@@ -13,7 +13,6 @@ const getAPIKeys = async () => {
     if (!response.ok) {
       throw new Error("Failed to fetch API keys");
     }
-
     // Parse the response as JSON
     const data = await response.json();
 
@@ -24,8 +23,8 @@ const getAPIKeys = async () => {
       row.innerHTML = `
         <td>${apiKey.id}</td>
         <td>${apiKey.apiKey}</td>
-        <td>${apiKey.createdAt}</td>
-        <td>${apiKey.updatedAt}</td>
+        <td>${new Date(apiKey.createdAt).toISOString()}</td>
+        <td>${new Date(apiKey.updatedAt).toISOString()}</td>
         <!-- Add more columns as needed -->
       `;
       tableBody.appendChild(row);
