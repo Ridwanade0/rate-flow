@@ -19,9 +19,13 @@ export interface latestCurrencyRates {
   rates: Record<string, number>;
 }
 
-export interface CurrencyCode {
+export interface DBCurrencyCode {
   _id: string;
   code: string;
+}
+
+export interface CurrencyCodes {
+  [key: string]: string; // Assuming currency codes are strings mapping to their names
 }
 
 export interface Rates {
