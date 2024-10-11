@@ -2,6 +2,7 @@ import axios from "axios";
 import "dotenv/config";
 import path from "path";
 import fs from "fs";
+import Currency from "../models/currenciesModel";
 
 const saveCurrencyCodes = async () => {
   try {
@@ -19,6 +20,13 @@ const saveCurrencyCodes = async () => {
       "currencies.json"
     );
 
+    await Currency.findByIdAndUpdate(
+      { _id: "CurrenciesCode" },
+      {
+        code: data,
+      },
+      { upsert: true }
+    );
     // Write the response data to the file
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
   } catch (error) {
