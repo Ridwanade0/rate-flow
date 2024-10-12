@@ -1,6 +1,6 @@
 import { Schema, Document, model } from "mongoose";
 
-interface CurrencyRateDocument extends Document {
+export interface CurrencyRateDocument extends Document {
   base: string;
   date: string;
   rates: Record<string, number>;

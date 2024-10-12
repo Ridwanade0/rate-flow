@@ -20,8 +20,8 @@ const PORT = process.env.PORT as string; // Define the port from environment var
 
   // Connect to MongoDB
   await connectMongoDB();
-  await saveCurrencyCodes();
-  await saveLatestRates();
+  // await saveCurrencyCodes();
+  // await saveLatestRates();
 
   // Route for the home page
   app.get("/", (req: Request, res: Response): void => {

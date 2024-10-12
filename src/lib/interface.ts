@@ -36,3 +36,7 @@ export interface CurrencyRatesResponse {
   rates: Rates;
   base: string;
 }
+
+// export interface RequestBase {
+
+// }
