@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
     <link rel="stylesheet" href="../css/main.css" />
+    <style>
+      .hero {
+        background-color: #f8f9fa;
+        padding: 100px 0;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+      .hero p {
+        font-size: 1.2rem;
+        margin-top: 20px;
+      }
+      .hero-btn {
+        margin-top: 30px;
+      }
+    </style>
   </head>
   <body class="container-md">
     <header>
@@ -39,6 +57,18 @@
         </div>
       </nav>
     </header>
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h1>Welcome to RatesFlow API</h1>
+          <p>This project was built as part of my learning journey in API development using TypeScript and Node.js. I plan to use it as a tool for exploring new technologies, learning modern web development practices, and experimenting with various features.</p>
+          <p>It's more than just an exchange rate API—it's a platform for growth, experimentation, and continuous learning.</p>
+          <div class="hero-btn">
+            <a href="#features" class="btn btn-primary btn-lg">Learn More</a>
+            <a href="#get-started" class="btn btn-outline-secondary btn-lg">Get Started</a>
+          </div>
+        </div>
+      </section>
     <script src="../js/main.js"></script>
   </body>
 </html>
