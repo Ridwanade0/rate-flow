@@ -1,3 +1,9 @@
 {
-    "ext": "js,json,cjs,html"
+ "watch": ["src/**/*", "views/**/*"],  
+ "ext": "ts,js,json,ejs",
+ "ignore": ["node_modules"],     
+ "env": {
+   "NODE_ENV": "development"    
+ },
+ "delay": "500"    
 }

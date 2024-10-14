@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body class="container">
+    <form class="w-50 border p-4 rounded bg-white shadow" id="loginForm">
+      <h1 class="text-center">Login</h1>
+      <p class="text-center">
+        Login to continue using our currency conversion api
+      </p>
+      <div class="mb-3">
+        <label for="emailAddress" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="emailAddress"
+          placeholder="johndoe@email.com"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="**********"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+      <p class="text-center">
+        Don't have an account, Create
+        <a href="/auth/signup" class="mt-2">here</a>
+      </p>
+    </form>
+    <script src="../js/main.js"></script>
+    <script src="../js/login.js"></script>
+  </body>
+</html>
