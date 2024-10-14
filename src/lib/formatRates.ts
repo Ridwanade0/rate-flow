@@ -1,4 +1,4 @@
-import { CurrencyRateDocument } from "../models/ratesModel";
+import { CurrencyRateDocument } from "../models/CurencyRatesModel";
 
 const formatRates = async (rates: CurrencyRateDocument) => {
   try {

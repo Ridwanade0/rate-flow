@@ -1,5 +1,7 @@
 import formatRates from "../lib/formatRates";
-import CurrencyRates, { CurrencyRateDocument } from "../models/ratesModel";
+import CurrencyRates, {
+  CurrencyRateDocument,
+} from "../models/CurencyRatesModel";
 
 interface ValidatedRates {
   date: string;

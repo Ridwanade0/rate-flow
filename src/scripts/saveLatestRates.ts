@@ -1,6 +1,6 @@
 import axios from "axios";
 import Currency from "../models/currenciesModel";
-import CurrencyRates from "../models/ratesModel"; // to store latest currencies rates
+import CurrencyRates from "../models/CurencyRatesModel"; // to store latest currencies rates
 import "dotenv/config";
 import {
   CurrencyCodes,
