@@ -5,5 +5,5 @@
  "env": {
    "NODE_ENV": "development"    
  },
- "delay": "500"    
+ "delay": "300"    
 }
