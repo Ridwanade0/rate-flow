@@ -13,7 +13,7 @@ const app = express(); // initialize express instance
   app.set("json spaces", 2); // set app(express instance) to format and prettify json data and object
   app.use(express.static(path.join(__dirname, "..", "public"))); // set express instance to use the public folder content for serving static files
   app.set("view engine", "ejs"); // sets ejs as the view engine for this application.
-  app.set("views", path.join(__dirname, "views")); // set up the path to the views folder conatianing the ejs files for teh views, fromtend and ui.
+  app.set("views", path.join(__dirname, "..", "views")); // set up the path to the views folder conatianing the ejs files for teh views, fromtend and ui.
 
   const PORT = process.env.PORT || "3000"; // loaded the port number from the environment variable but default to 3000 if port number is not loaded or nt available.
 
