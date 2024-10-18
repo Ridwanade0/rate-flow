@@ -4,7 +4,6 @@ import "dotenv/config"; // import dtenv config to load env varibles to session
 import path from "path";
 import cron from "node-cron"; // imported node-cron for use to create cron jobs
 import fetchAndSaveCurrencyCodes from "./scripts/fetchCurrencyCodes"; // import fetchAndSaveCurrencyCodes
-import endpoints from "./routes/endpoints"; // imported endpoints routes to use with the express route handler
 
 const app = express(); // initialize express instance
 
@@ -27,8 +26,9 @@ const app = express(); // initialize express instance
   app.get("/", (req: Request, res: Response) => {
     res.render("index");
   });
-
-  app.use("/docs/end-points", endpoints); // defining routes pages that will render documentation for the api endpoints
+  app.get("/docs", (req: Request, res: Response) => {
+    res.render("docs");
+  });
   app.listen(PORT, () => {
     console.log(`Server listening on port: http://localhost:${PORT}`);
   });
