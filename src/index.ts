@@ -8,6 +8,7 @@ import endpoints from "./routes/endpoints"; // imported endpoints routes to use 
 
 const app = express(); // initialize express instance
 
+// created self executing function to invoke the server imediatly after the app is executed
 (async () => {
   app.use(express.json()); // set app(express instance)to use express json for passing json data and object
   app.set("json spaces", 2); // set app(express instance) to format and prettify json data and object
