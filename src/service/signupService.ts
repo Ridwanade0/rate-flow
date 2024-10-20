@@ -3,11 +3,16 @@ import bcrypt from "bcrypt"; // imported bcrypt module for password encrption pu
 import "dotenv/config"; // imported dotenv to load environment variables
 import userModel from "../model/userModel"; // imported userModel to store and create new user model
 import { v4 as uuidv4 } from "uuid";
+import sendEmail from "../lib/sendEmail";
+import isValidEmail from "../lib/isValidEmal";
 
 const signupService = async (email: string, password: string) => {
   try {
     if (!email && !password) {
       throw new Error("Email and password are required");
+    }
+    if (!isValidEmail(email)) {
+      throw new Error("Invalid email format");
     }
     const bcryptSaltValue = parseInt(process.env.BCRYPT_SALT_VALUE as string); // used type assertion to convert bcryptsaltvalue coming from environment variables to string
     const hashedPassword = await bcrypt.hash(password, bcryptSaltValue);
@@ -20,6 +25,12 @@ const signupService = async (email: string, password: string) => {
     });
 
     await newUser.save();
+    // send email notification here
+    await sendEmail(
+      email,
+      "Welcome",
+      "Login to your account to start using Rate Flow api"
+    );
     return {
       success: true,
       message: "User created successfully",

@@ -6,6 +6,7 @@ import cron from "node-cron"; // imported node-cron for use to create cron jobs
 import fetchAndSaveCurrencyCodes from "./scripts/fetchCurrencyCodes"; // import fetchAndSaveCurrencyCodes
 import authRoutes from "./routes/authRoutes"; // import authRoutes middleware to handle the routes defination in teh auth paths
 import connectMongoDB from "./lib/connectMongoDB";
+import accountRoutes from "./routes/accountRoutes";
 
 const app = express(); // initialize express instance
 
@@ -32,7 +33,8 @@ const app = express(); // initialize express instance
   app.get("/docs", (req: Request, res: Response) => {
     res.render("docs");
   }); // docs path to render the docs page
-  app.use("/auth", authRoutes) // route middleware to handle the authentication routes 
+  app.use("/auth", authRoutes); // route middleware to handle the authentication routes
+  app.use("/account", accountRoutes);
   app.listen(PORT, () => {
     console.log(`Server listening on port: http://localhost:${PORT}`);
   });
