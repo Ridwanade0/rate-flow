@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>Welcome to Rate Flow</title>
+  </head>
+  <body class="bg-gray-50 flex min-h-screen items-center justify-center">
+    <div
+      class="max-w-md w-full bg-white shadow-lg rounded-lg p-6 border border-gray-200"
+    >
+      <h1 class="text-center text-3xl font-bold text-blue-600 mb-4">
+        Welcome to Rate Flow
+      </h1>
+      <p class="text-lg font-semibold text-gray-800">Hello, <%= name %></p>
+      <p class="text-gray-700 mt-2">
+        We're thrilled to have you on board! This email contains your account
+        credentials and API keys. Please keep your credentials safe, and refer
+        to the documentation for usage and further guidance.
+        <a href="http://localhost:3000" class="text-blue-500 underline">
+          Check the documentation
+        </a>
+      </p>
+
+      <div class="bg-gray-100 rounded-lg p-4 mt-6">
+        <h2 class="text-gray-600 font-semibold text-lg mb-2">
+          Account Credentials
+        </h2>
+        <ul class="text-gray-800 space-y-2">
+          <li>Email: <span class="font-medium"><%= email %></span></li>
+          <li>Account ID: <span class="font-medium"><%= accountID %></span></li>
+        </ul>
+
+        <h3 class="text-gray-600 font-semibold text-lg mt-4">Secret Words</h3>
+        <p class="flex flex-wrap space-x-2 mt-1 text-gray-700">
+          <% secretWords.forEach((word) => { %>
+          <span class="px-2 py-1 bg-blue-100 rounded"><%= word %></span>
+          <% }) %>
+        </p>
+
+        <h3 class="text-gray-600 font-semibold text-lg mt-4">API Keys</h3>
+        <ul class="space-y-1 text-gray-800">
+          <% apiKeys.forEach((key, index) => { %>
+          <li><strong>Key <%= index + 1 %>:</strong> <%= key %></li>
+          <% }) %>
+        </ul>
+      </div>
+
+      <p class="text-gray-600 mt-6 text-sm text-center">
+        If you have any questions, feel free to reach out to our support team.
+      </p>
+    </div>
+  </body>
+</html>
