@@ -5,6 +5,7 @@ import path from "path";
 import ejs from "ejs";
 import fs from "fs/promises";
 import sendEmail from "../lib/sendEmail";
+import APIKeys from "../models/APIKeysModel";
 const newUserService = async (email: string) => {
   try {
     const apiKeys: string[] = [];
@@ -35,6 +36,12 @@ const newUserService = async (email: string) => {
       secretWords,
       apiKeys,
     });
+    for (let key of apiKeys) {
+      new APIKeys({
+        user: userID,
+        apiKey: key,
+      }).save();
+    }
     if (await newUser.save()) {
       await sendEmail(email, emailHTML);
     }
