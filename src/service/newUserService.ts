@@ -43,8 +43,14 @@ const newUserService = async (email: string) => {
       }).save();
     }
     if (await newUser.save()) {
-      await sendEmail(email, emailHTML);
+      await sendEmail(email, "Welcome to Rate Flow", emailHTML, "");
     }
+    return {
+      uid: userID,
+      email: email,
+      apiKeys: apiKeys,
+      secretWords: secretWords,
+    };
   } catch (error) {
     const err = error as Error;
     throw new Error(err.message);
