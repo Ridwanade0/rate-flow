@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { validate } from "uuid";
-import disableApiKeyService from "../service/disableApiKeyService";
+import enableApiKeyService from "../service/enableApiKeyService";
 
-const disableApiKeyController = async (req: Request, res: Response) => {
+const enableApiKeyController = async (req: Request, res: Response) => {
   const uid: string = req.body.uid;
   const secretWords: string[] = req.body.secretWords.split(",");
   const apiKey: string = req.body.apiKey;
@@ -29,10 +29,10 @@ const disableApiKeyController = async (req: Request, res: Response) => {
         .json({ success: false, message: "Secret words required" });
       return;
     }
-    const response = await disableApiKeyService(uid, secretWords, apiKey);
+    const response = await enableApiKeyService(uid, secretWords, apiKey);
     res.status(200).json({
       success: response,
-      message: "API Key disabled",
+      message: "API key enabled successfully",
     });
   } catch (error) {
     const err = error as Error;
@@ -43,4 +43,4 @@ const disableApiKeyController = async (req: Request, res: Response) => {
   }
 };
 
-export default disableApiKeyController;
+export default enableApiKeyController;
