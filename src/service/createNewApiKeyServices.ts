@@ -8,6 +8,9 @@ const createNewApiKeyServices = async (uid: string, secretWords: string[]) => {
     if (!user) {
       throw new Error("User not found or invalid secret words");
     }
+    if (user.apiKeys.length >= 5) {
+      throw new Error("You can only have up to 5 API keys");
+    }
     const apiKey = "rf_" + uuidv4().split("-").join("");
     await APIKeys.create({ user: uid, apiKey });
     await user.updateOne({ $push: { apiKeys: apiKey } });
