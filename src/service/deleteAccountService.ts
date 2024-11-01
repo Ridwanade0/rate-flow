@@ -17,7 +17,7 @@ const deleteAccountService = async (uid: string, secretWords: string[]) => {
       user.email,
       "Account Deleted",
       "",
-      "Account has been deleted, we are sorry to see you leave. To continue using rates flow please re-register again"
+      "Account has been deleted, we are sad to see you leave. To continue using rates flow please re-register again"
     );
     return true;
   } catch (error) {

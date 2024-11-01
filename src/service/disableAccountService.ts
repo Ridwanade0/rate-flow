@@ -19,12 +19,6 @@ const disableAccountService = async (uid: string, secretWords: string[]) => {
     // disable account in user collection
     await user.updateOne({ isActive: false });
 
-    // find all apikeys associated with this user
-    const apiKeys = await APIKeys.find({ user: uid });
-
-    // disable these apikeys in apikeys collection
-    await Promise.all(apiKeys.map((key) => key.updateOne({ isActive: false })));
-
     await sendEmail(
       user.email,
       "Account Disabled",
@@ -33,7 +27,6 @@ const disableAccountService = async (uid: string, secretWords: string[]) => {
     );
 
     return true;
-    // if user found  then disable account, also use the apikeys to check for apikeys in apikeys collectiona nd disable the keys also
   } catch (error) {
     const err = error as Error;
     throw new Error(err.message);
