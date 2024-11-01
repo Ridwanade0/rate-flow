@@ -50,6 +50,10 @@ const userModelSchema = new Schema<IUser>(
       unique: true,
       index: true,
       match: /^rf_[0-9a-f]{32}$/,
+      validate: {
+        validator: (v: string[]) => v.length <= 5,
+        message: "You can only have up to 5 API keys.",
+      },
     },
     secretWords: {
       type: [String],
