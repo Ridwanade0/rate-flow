@@ -28,7 +28,7 @@ const deleteApiKeyService = async (
     // Pull the API key from the user's apikeys array
     await User.updateOne(
       { uid: uid, secretWords: secretWords },
-      { $pull: { apikeys: apiKey } }
+      { $pull: { apiKeys: apiKey } }
     );
 
     await sendEmail(
