@@ -43,7 +43,10 @@ const validateAPIKey = async (APIKey: string): Promise<ValidationResult> => {
 
 const updateApiCallsLimit = async (userId: string, apiKey: string) => {
   try {
-    await User.findByIdAndUpdate(userId, { $inc: { apiCallsLimit: -1 } });
+    await User.findOneAndUpdate(
+      { uid: userId },
+      { $inc: { apiCallsLimit: -1 } }
+    );
     await APIKeys.findOneAndUpdate(
       { apiKey: apiKey },
       { $inc: { totalAPICalls: 1, totalAPIMonthCalls: 1 } }
