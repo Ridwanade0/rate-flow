@@ -1,6 +1,6 @@
-import sendEmail from "../lib/sendEmail";
-import APIKeys from "../models/APIKeysModel";
-import User from "../models/UserModel";
+import sendEmail from "../../lib/sendEmail";
+import APIKeys from "../../models/APIKeysModel";
+import User from "../../models/UserModel";
 import { v4 as uuidv4 } from "uuid";
 const createNewApiKeyServices = async (uid: string, secretWords: string[]) => {
   try {

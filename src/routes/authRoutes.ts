@@ -1,12 +1,12 @@
 import { Router } from "express";
-import newUserController from "../controllers/newUserController";
-import disableAccountController from "../controllers/disableAccountController";
-import deleteAccountController from "../controllers/deleteAccountController";
-import enableAccountController from "../controllers/enableAccountController";
-import deleteApiKeyController from "../controllers/deleteApiKeyController";
-import disableApiKeyController from "../controllers/disableAPIKeyController";
-import enableApiKeyController from "../controllers/enableApiKeyController";
-import createNewApiKeyController from "../controllers/createNewApiKeyController";
+import newUserController from "../controllers/authControllers/newUserController";
+import disableAccountController from "../controllers/authControllers/disableAccountController";
+import deleteAccountController from "../controllers/authControllers/deleteAccountController";
+import enableAccountController from "../controllers/authControllers/enableAccountController";
+import deleteApiKeyController from "../controllers/authControllers/deleteApiKeyController";
+import disableApiKeyController from "../controllers/authControllers/disableAPIKeyController";
+import enableApiKeyController from "../controllers/authControllers/enableApiKeyController";
+import createNewApiKeyController from "../controllers/authControllers/createNewApiKeyController";
 
 const router = Router();
 router.post("/new-user", newUserController);

@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { validate } from "uuid";
-import createNewApiKeyServices from "../service/createNewApiKeyServices";
+import createNewApiKeyServices from "../../services/authServices/createNewApiKeyServices";
 
 const createNewApiKeyController = async (req: Request, res: Response) => {
   const uid: string = req.body.uid;

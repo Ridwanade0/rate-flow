@@ -1,14 +1,20 @@
 import { Request, Response } from "express";
 import { validate } from "uuid";
-import deleteAccountService from "../service/deleteAccountService";
+import disableApiKeyService from "../../services/authServices/disableApiKeyService";
 
-const deleteAccountController = async (req: Request, res: Response) => {
+const disableApiKeyController = async (req: Request, res: Response) => {
   const uid: string = req.body.uid;
   const secretWords: string[] = req.body.secretWords.split(",");
-
+  const apiKey: string = req.body.apiKey;
   try {
     if (!validate(uid)) {
       res.status(400).json({ success: false, message: "Invalid uid" });
+      return;
+    }
+    if (apiKey === "") {
+      res
+        .status(400)
+        .json({ success: false, message: "No API key was provided" });
       return;
     }
 
@@ -23,10 +29,10 @@ const deleteAccountController = async (req: Request, res: Response) => {
         .json({ success: false, message: "Secret words required" });
       return;
     }
-    const response = await deleteAccountService(uid, secretWords);
+    const response = await disableApiKeyService(uid, secretWords, apiKey);
     res.status(200).json({
       success: response,
-      message: "Account deleted, check your email for more information",
+      message: "API Key disabled",
     });
   } catch (error) {
     const err = error as Error;
@@ -37,4 +43,4 @@ const deleteAccountController = async (req: Request, res: Response) => {
   }
 };
 
-export default deleteAccountController;
+export default disableApiKeyController;

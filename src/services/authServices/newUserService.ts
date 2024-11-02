@@ -1,11 +1,11 @@
 import { v4 as uuidv4 } from "uuid";
-import getSecretWords from "../lib/getSecretWords";
-import User from "../models/UserModel";
+import getSecretWords from "../../lib/getSecretWords";
+import User from "../../models/UserModel";
 import path from "path";
 import ejs from "ejs";
 import fs from "fs/promises";
-import sendEmail from "../lib/sendEmail";
-import APIKeys from "../models/APIKeysModel";
+import sendEmail from "../../lib/sendEmail";
+import APIKeys from "../../models/APIKeysModel";
 const newUserService = async (email: string) => {
   try {
     const apiKeys: string[] = [];

@@ -1,5 +1,5 @@
-import APIKeys from "../models/APIKeysModel";
-import User from "../models/UserModel";
+import APIKeys from "../../models/APIKeysModel";
+import User from "../../models/UserModel";
 
 const enableApiKeyService = async (
   uid: string,

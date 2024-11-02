@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import isValidEmail from "../lib/isValidEmail";
-import newUserService from "../service/newUserService";
+import isValidEmail from "../../lib/isValidEmail";
+import newUserService from "../../services/authServices/newUserService";
 
 const newUserController = async (req: Request, res: Response) => {
   const email: string = req.body.email;

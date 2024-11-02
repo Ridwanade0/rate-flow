@@ -1,5 +1,5 @@
-import sendEmail from "../lib/sendEmail";
-import User from "../models/UserModel";
+import sendEmail from "../../lib/sendEmail";
+import User from "../../models/UserModel";
 
 const enableAccountService = async (uid: string, secretWords: string[]) => {
   try {

@@ -1,6 +1,6 @@
-import sendEmail from "../lib/sendEmail";
-import APIKeys from "../models/APIKeysModel";
-import User from "../models/UserModel";
+import sendEmail from "../../lib/sendEmail";
+import APIKeys from "../../models/APIKeysModel";
+import User from "../../models/UserModel";
 
 const disableAccountService = async (uid: string, secretWords: string[]) => {
   try {

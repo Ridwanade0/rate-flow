@@ -1,10 +1,11 @@
 import "dotenv/config";
 import express from "express";
-import authRoutes from "./routes/authRoutes";
-import connectMongoDB from "./lib/connectMongoDB";
-import path from "path";
-import saveCurrencyCodes from "./scripts/saveCurrencyCodes";
 import cron from "node-cron";
+import path from "path";
+import connectMongoDB from "./lib/connectMongoDB";
+import apiRoutes from "./routes/apiRoutes";
+import authRoutes from "./routes/authRoutes";
+import saveCurrencyCodes from "./scripts/saveCurrencyCodes";
 import saveLatestCurrencyRates from "./scripts/saveLatestCurrencyRates";
 
 (async () => {
@@ -19,6 +20,7 @@ import saveLatestCurrencyRates from "./scripts/saveLatestCurrencyRates";
     await saveLatestCurrencyRates();
   });
   app.use("/auth", authRoutes);
+  app.use("/api", apiRoutes);
   app.listen(PORT, () => {
     console.log(`Server running at: http://localhost:${PORT}`);
   });

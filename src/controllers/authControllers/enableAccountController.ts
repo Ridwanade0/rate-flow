@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { validate } from "uuid";
-import disableAccountService from "../service/disableAccountService";
+import enableAccountService from "../../services/authServices/enableAccountService";
 
-const disableAccountController = async (req: Request, res: Response) => {
+const enableAccountController = async (req: Request, res: Response) => {
   const uid: string = req.body.uid;
   const secretWords: string[] = req.body.secretWords.split(",");
 
@@ -23,18 +23,14 @@ const disableAccountController = async (req: Request, res: Response) => {
         .json({ success: false, message: "Secret words required" });
       return;
     }
-    const response = await disableAccountService(uid, secretWords);
+    const response = await enableAccountService(uid, secretWords);
     res.status(201).json({
       success: response,
-      message: "Account disabled, check your email for more information",
+      message: "Account enabled, check your email for more information",
     });
   } catch (error) {
     const err = error as Error;
-    res.status(500).json({
-      success: false,
-      message: err.message,
-    });
+    res.status(500).json({ success: false, message: err.message });
   }
 };
-
-export default disableAccountController;
+export default enableAccountController;
