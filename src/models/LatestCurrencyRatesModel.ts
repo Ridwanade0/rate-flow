@@ -13,9 +13,9 @@ const latestCurrencyRatesModelSchema = new Schema<ILatestCurrencyRates>({
   rates: { type: Object, required: true },
 });
 
-const latestCurrencyRateModel = model(
+const LatestCurrencyRateModel = model(
   "latestCurrencyRates",
   latestCurrencyRatesModelSchema
 );
 
-export default latestCurrencyRateModel;
+export default LatestCurrencyRateModel;
