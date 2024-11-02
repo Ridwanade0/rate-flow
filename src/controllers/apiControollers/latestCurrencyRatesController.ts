@@ -4,7 +4,7 @@ import latestCurrencyRatesService from "../../services/apiServices/latestCurrenc
 
 const latestCurrencyRatesController = async (req: Request, res: Response) => {
   const apiKey = req.headers.authorization?.replace("Bearer ", "") as string;
-  const base = req.query.base as string;
+  const base = (req.query.base as string) || "USD";
   const symbols = req.query.symbols as string;
   try {
     const apiKeyValidity = await validateAPIKey(apiKey);
