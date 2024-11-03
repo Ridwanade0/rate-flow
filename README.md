@@ -1,6 +1,6 @@
 # Rate Flow
 
-Rate Flow is a robust currency conversion API service that provides real-time exchange rates for multiple currencies. Built as an alternative to popular services like Open Exchange Rates, it offers efficient currency conversion capabilities while optimizing API call usage through smart caching and data management.
+Rate Flow is a open-source robust currency conversion API service that provides real-time exchange rates for multiple currencies. Built as an alternative to popular services like Open Exchange Rates, it offers efficient currency conversion capabilities while optimizing API call usage through smart caching and data management.
 
 ## Features
 
