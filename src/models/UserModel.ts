@@ -64,7 +64,7 @@ const userModelSchema = new Schema<IUser>(
     apiCallsLimit: {
       type: Number,
       required: true,
-      default: 100,
+      default: 1000,
     },
   },
   {
