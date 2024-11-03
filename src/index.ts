@@ -1,5 +1,5 @@
 import "dotenv/config";
-import express from "express";
+import express, { Request, Response } from "express";
 import cron from "node-cron";
 import path from "path";
 import connectMongoDB from "./lib/connectMongoDB";
@@ -21,6 +21,9 @@ import saveLatestCurrencyRates from "./scripts/saveLatestCurrencyRates";
   });
   app.use("/auth", authRoutes);
   app.use("/api", apiRoutes);
+  app.get("/", (req: Request, res: Response) => {
+    res.sendFile(path.join(__dirname, "..", "views", "index.html"));
+  });
   app.listen(PORT, () => {
     console.log(`Server running at: http://localhost:${PORT}`);
   });
