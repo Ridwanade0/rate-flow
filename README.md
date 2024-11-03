@@ -1,14 +1,14 @@
 # Rate Flow
 
-Rate Flow is a open-source robust currency conversion API service that provides real-time exchange rates for multiple currencies. Built as an alternative to popular services like Open Exchange Rates, it offers efficient currency conversion capabilities while optimizing API call usage through smart caching and data management.
+**Rate Flow** is an open-source, high-performance currency conversion API service that provides real-time exchange rates for multiple currencies. Designed as a versatile alternative to popular services like Open Exchange Rates, it offers precise and efficient currency conversion while minimizing API call usage through optimized caching and data management.
 
 ## Features
 
 - **Real-time currency exchange rates**
 - **Support for multiple base currencies**
-- **Currency conversion with precise rates**
+- **Precise currency conversions**
 - **Historical exchange rates lookup**
-- **Rate caching and hourly updates**
+- **Intelligent rate caching with hourly updates**
 - **API key authentication**
 - **Email notifications for account actions**
 
@@ -22,25 +22,31 @@ Rate Flow is a open-source robust currency conversion API service that provides 
    ```
    **Parameters:**
    - `base`: Base currency code (default: USD)
-   - `symbols`: Comma-separated list of currency codes
+   - `symbols`: Comma-separated list of target currency codes
 
-2. **Historical Rates**
+2. **Multiple Base Rates**
+   ```bash
+   GET /api/latest.json?base=USD,NGN,GBP&symbols={"USD": ["EUR", "GBP"], "NGN": ["USD", "GBP"]}
+   ```
+   **Description:** Returns rates for multiple specified base currencies, and if teh symbols are not provided it returns all the available rates for the specified currency
+
+3. **Historical Rates**
    ```bash
    GET /api/history/:date.json?base=USD&symbols=EUR,GBP,JPY
    ```
    **Parameters:**
-   - `date`: Date in YYYY-MM-DD format
+   - `date`: Date in `YYYY-MM-DD` format
    - `base`: Base currency code (default: USD)
-   - `symbols`: Comma-separated list of currency codes
+   - `symbols`: Comma-separated list of target currency codes
 
-3. **Currency Conversion**
+4. **Currency Conversion**
    ```bash
    GET /api/convert?from=USD&to=EUR&amount=100
    ```
    **Parameters:**
-   - `from`: Source currency code (default: USD)
-   - `to`: Target currency code (default: NGN)
-   - `amount`: Amount to convert (default: 1)
+   - `from`: Source currency code
+   - `to`: Target currency code
+   - `amount`: Amount to convert
 
 ### Authentication Endpoints
 
@@ -55,7 +61,7 @@ Rate Flow is a open-source robust currency conversion API service that provides 
 
 ### Authentication
 
-Rate Flow uses API key authentication. Include your API key in the request header:
+Rate Flow uses API key-based authentication. Include your API key in the request header:
 
 ```bash
 Authorization: Bearer your_api_key_here
@@ -75,37 +81,35 @@ Content-Type: application/json
 **Response includes:**
 - Account ID (UID)
 - API Keys
-- Secret Words (important for account management)
+- Secret words (for account management)
 
 ### API Key Management
 
 Users can:
 - Create up to 5 API keys
-- Enable/disable existing keys
+- Enable or disable existing keys
 - Delete unused keys
 - Track usage per key
 
 ### Rate Limits
 
-- Free tier: 1000 API calls per day
-- API calls reset monthly
-- Email notifications for limit warnings
+- **Free tier:** 1000 API calls per day, resetting monthly
+- **Notifications:** Email alerts when approaching the usage limit
 
 ## Technical Implementation
 
-### Technologies Used
-- **TypeScript**: Primary programming language with strict type safety
-- **Node.js**: JavaScript runtime environment
-- **Express.js**: REST API framework
-- **MongoDB**: Database for storing rates and user data
-- **Nodemailer**: Email notification service
-- **Node-cron**: Scheduled tasks for rate updates
+### Technology Stack
+- **TypeScript:** Primary language with strict typing
+- **Node.js:** Runtime environment
+- **Express.js:** REST API framework
+- **MongoDB:** Database for rates and user data storage
+- **Nodemailer:** Email notifications
+- **Node-cron:** Scheduled tasks for rate updates
 
 ### Data Management
 - Hourly rate updates from Open Exchange Rates
-- Efficient caching system
-- Smart conversion calculations
-- Historical data storage
+- Caching for efficient data retrieval
+- Historical data storage for past rate lookups
 
 ## Installation
 
@@ -121,11 +125,11 @@ Users can:
    ```
 
 3. **Create `.env` file:**
-   ```env
+   ```plaintext
    PORT=3000
    MONGODB_URI=mongodb://localhost:27017/rate-flow
-   EMAIL_PASSWORD=your_email_password
    EMAIL_USERNAME=your_email@example.com
+   EMAIL_PASSWORD=your_email_password
    OER_APP_ID=your_open_exchange_rates_app_id
    OER_BASE_URL=https://openexchangerates.org/api/
    ```
@@ -136,14 +140,14 @@ Users can:
    npm start
    ```
 
-5. **For development:**
+5. **Development mode:**
    ```bash
    npm run dev
    ```
 
 ## Error Handling
 
-The API returns standard HTTP status codes:
+The API returns standard HTTP status codes for clear troubleshooting:
 
 - **200**: Success
 - **400**: Bad Request
@@ -151,16 +155,16 @@ The API returns standard HTTP status codes:
 - **404**: Not Found
 - **500**: Server Error
 
-Error responses include detailed messages for debugging.
+Error responses include messages for improved debugging.
 
 ## Security Features
 
 - API key authentication
-- Rate limiting
-- Email verification
-- Secret words for account management
+- Rate limiting for controlled access
+- Email verification for account security
+- Secret words for sensitive account actions
 - Secure password storage
-- Request validation
+- Strict request validation
 
 ## Contributing
 
@@ -171,7 +175,7 @@ Error responses include detailed messages for debugging.
    ```
 3. Commit your changes
    ```bash
-   git commit -m 'Add some AmazingFeature'
+   git commit -m 'Add AmazingFeature'
    ```
 4. Push to the branch
    ```bash
