@@ -111,7 +111,7 @@ Users can:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/rate-flow.git
+   git clone https://github.com/Ridwanade0/rate-flow.git
    ```
 
 2. **Install dependencies:**
