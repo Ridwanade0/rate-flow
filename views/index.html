@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rate Flow API Documentation</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body class="bg-gray-100">
     <header>
@@ -14,19 +17,63 @@
     </header>
     <main class="flex h-[88vh]">
       <aside class="h-full md:w-[200px] p-4 border-r border-gray-300 bg-white">
-        <h2 class="text-lg font-semibold mb-2">Documentation</h2>
-        <ul class="space-y-1">
-          <li><a href="#api-introduction" class="text-gray-700 hover:underline hover:text-blue-600">API Introduction</a></li>
-         
-        </ul>
+        <div>
+          <h2 class="text-lg font-semibold mb-2">Documentation</h2>
+          <ul class="space-y-1">
+            <li>
+              <a
+                href="#api-introduction"
+                class="text-gray-700 hover:underline hover:text-blue-600"
+                >API Introduction</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-lg font-semibold mb-2">Account Management</h2>
+          <ul class="space-y-1">
+            <li>
+              <a
+                href="#new-user"
+                class="text-gray-700 hover:underline hover:text-blue-600"
+                >Create new account</a
+              >
+            </li>
+          </ul>
+        </div>
       </aside>
       <div class="flex-grow p-4 overflow-y-auto">
         <section id="api-introduction" class="mb-6">
           <h1 class="text-2xl font-bold mb-2">API Introduction</h1>
-          <p class="mb-4">Rates Flow provides a simple, lightweight, and portable JSON API that supplies live and historical foreign exchange (forex) rates. This API is easy to integrate and presents data in JSON format. Rates are fetched and delivered from <a href="https://openexchangerates.org" class="text-blue-600 hover:underline">Open Exchange Rates</a>, which compiles and blends rates algorithmically from various trusted sources to ensure consistent and unbiased accuracy.</p>
-          <p class="mb-4">The exchange rates provided by the Rates Flow API are sourced from Open Exchange Rate, blended together, and delivered in JSON format for everyone to access. There are no complicated queries, confusing authentication processes, or long-term contracts involved.</p>
-          <p class="mb-4">End-of-day rates are available historically from October 21, 2024, onwards. However, some dates may be unavailable because this project is open-source and hosted on a free-tier Docker container, which shuts down when not in use, resulting in gaps in the data.</p>
-          <p class="mb-4">In addition to being in development and intended for learning purposes, this project is open-source, allowing you to contribute or self-host it if you wish.</p>
+          <p class="mb-4">
+            Rates Flow provides a simple, lightweight, and portable JSON API
+            that supplies live and historical foreign exchange (forex) rates.
+            This API is easy to integrate and presents data in JSON format.
+            Rates are fetched and delivered from
+            <a
+              href="https://openexchangerates.org"
+              class="text-blue-600 hover:underline"
+              >Open Exchange Rates</a
+            >, which compiles and blends rates algorithmically from various
+            trusted sources to ensure consistent and unbiased accuracy.
+          </p>
+          <p class="mb-4">
+            The exchange rates provided by the Rates Flow API are sourced from
+            Open Exchange Rate, blended together, and delivered in JSON format
+            for everyone to access. There are no complicated queries, confusing
+            authentication processes, or long-term contracts involved.
+          </p>
+          <p class="mb-4">
+            End-of-day rates are available historically from October 21, 2024,
+            onwards. However, some dates may be unavailable because this project
+            is open-source and hosted on a free-tier Docker container, which
+            shuts down when not in use, resulting in gaps in the data.
+          </p>
+          <p class="mb-4">
+            In addition to being in development and intended for learning
+            purposes, this project is open-source, allowing you to contribute or
+            self-host it if you wish.
+          </p>
           <h2 class="text-lg font-semibold mb-2">Intended Use Cases</h2>
           <ul class="list-disc list-inside mb-4">
             <li>Open source projects and charities</li>
@@ -35,7 +82,32 @@
             <li>Any other projects</li>
           </ul>
         </section>
+        <section
+          id="new-user"
+          class="flex flex-col items-center justify-center p-6 bg-gray-100 rounded-lg shadow-md"
+        >
+          <p class="mb-4 text-lg font-semibold text-gray-800">
+            Enter your email address to create an account on Rate Flow
+          </p>
+          <input
+            type="email"
+            id="new-user-email"
+            class="w-full max-w-xs p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Email address"
+          />
+          <button
+            id="new-user-email-button"
+            class="w-full max-w-xs p-2 text-white bg-blue-600 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+          >
+            Submit
+          </button>
+          <span
+            id="new-user-notification"
+            class="mt-2 text-sm text-red-600"
+          ></span>
+        </section>
       </div>
     </main>
+    <script src="/scripts/userRegistration.js"></script>
   </body>
 </html>

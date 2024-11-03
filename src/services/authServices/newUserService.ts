@@ -25,6 +25,7 @@ const newUserService = async (email: string) => {
       __dirname,
       "..",
       "..",
+      "..",
       "views",
       "welcomeEmail.ejs"
     );
