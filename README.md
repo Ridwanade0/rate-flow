@@ -15,7 +15,7 @@
 ## API Endpoints
 
 
-## Base url of this api is ```https://onrender.com ```
+## Base url of this api is ```https://rate-flow.onrender.com ```
 
 
 ### Currency Rates
