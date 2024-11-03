@@ -16,7 +16,7 @@ import saveLatestCurrencyRates from "./scripts/saveLatestCurrencyRates";
   await connectMongoDB();
   await saveCurrencyCodes();
   await saveLatestCurrencyRates();
-  cron.schedule("0 */4 * * *", async () => {
+  cron.schedule("0 * * * *", async () => {
     await saveLatestCurrencyRates();
   });
   app.use("/auth", authRoutes);
