@@ -2,7 +2,7 @@ import axios from "axios";
 import path from "path";
 import fs from "fs/promises";
 import { CurrencyRates } from "../lib/type";
-import LatestCurrencyRateModel from "../models/LatestCurrencyRatesModel";
+import currencyRateModel from "../models/CurrencyRatesModel";
 
 const calculateBaseRates = async (
   rates: CurrencyRates,
@@ -51,7 +51,7 @@ const fetchAndSaveLatestCurrencyRates = async () => {
       });
     }
     latestCurrencyRates.forEach(async (latestCurrencyRate) => {
-      await LatestCurrencyRateModel.findOneAndUpdate(
+      await currencyRateModel.findOneAndUpdate(
         {
           date: date,
           base: latestCurrencyRate.base,

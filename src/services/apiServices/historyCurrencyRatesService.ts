@@ -1,4 +1,4 @@
-import LatestCurrencyRateModel from "../../models/LatestCurrencyRatesModel";
+import currencyRateModel from "../../models/CurrencyRatesModel";
 
 const historyCurrencyRatesService = async (
   base: string,
@@ -19,7 +19,7 @@ const historyCurrencyRatesService = async (
     }
     let result: any[] = [];
     for (const baseCurrencyCode of requestedBase) {
-      const latestRates = await LatestCurrencyRateModel.findOne({
+      const latestRates = await currencyRateModel.findOne({
         date: date,
         base: baseCurrencyCode,
       });

@@ -1,4 +1,4 @@
-import LatestCurrencyRateModel from "../../models/LatestCurrencyRatesModel";
+import currencyRateModel from "../../models/CurrencyRatesModel";
 
 const convertRatesService = async (
   from: string,
@@ -6,7 +6,7 @@ const convertRatesService = async (
   amount: number
 ) => {
   try {
-    const latestRates = await LatestCurrencyRateModel.findOne({ base: from });
+    const latestRates = await currencyRateModel.findOne({ base: from });
     const convertedRates = latestRates!.rates[to] * amount;
     const conversionRates = latestRates!.rates[to];
 

@@ -1,21 +1,21 @@
 import { Document, model, Schema } from "mongoose";
 import { CurrencyRates } from "../lib/type";
 
-interface ILatestCurrencyRates extends Document {
+interface ICurrencyRates extends Document {
   date: string;
   base: string;
   rates: CurrencyRates;
 }
 
-const latestCurrencyRatesModelSchema = new Schema<ILatestCurrencyRates>({
+const currencyRatesModelSchema = new Schema<ICurrencyRates>({
   date: { type: String, required: true },
   base: { type: String, required: true },
   rates: { type: Object, required: true },
 });
 
-const LatestCurrencyRateModel = model(
+const currencyRateModel = model(
   "latestCurrencyRates",
-  latestCurrencyRatesModelSchema
+  currencyRatesModelSchema
 );
 
-export default LatestCurrencyRateModel;
+export default currencyRateModel;

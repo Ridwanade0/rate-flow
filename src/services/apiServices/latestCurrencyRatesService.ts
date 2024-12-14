@@ -1,4 +1,4 @@
-import LatestCurrencyRateModel from "../../models/LatestCurrencyRatesModel";
+import currencyRateModel from "../../models/CurrencyRatesModel";
 
 const latestCurrencyRatesService = async (base: string, symbols: string) => {
   try {
@@ -15,7 +15,7 @@ const latestCurrencyRatesService = async (base: string, symbols: string) => {
     }
     let result: any[] = [];
     for (const baseCurrencyCode of requestedBase) {
-      const latestRates = await LatestCurrencyRateModel.findOne({
+      const latestRates = await currencyRateModel.findOne({
         base: baseCurrencyCode,
       });
       if (!latestRates) {
